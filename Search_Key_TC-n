@@ -1,0 +1,23 @@
+#include <stdio.h>
+int Search(int n,int arr[],int key){
+    if (n==0){
+        if (arr[n]==key)
+        return 1;
+    else return 0;
+    }
+    if (arr[n-1]==key){
+        return 1;
+    }
+    else return Search(n-1,arr,key);
+}
+
+int main(void) {
+	int a[10],n,key,i;
+	scanf("%d%d",&n,&key);
+	for (i=0;i<n;i++){
+	    scanf("%d",&a[i]);//Values taken
+	}
+	printf("%d",Search(n-1,a,key));
+	return 0;
+}
+
