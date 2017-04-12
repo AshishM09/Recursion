@@ -1,0 +1,30 @@
+#include <stdio.h>
+int Search(int start,int end,int arr[],int key){
+    if (start>end) return 0;
+    int mid=(start+end)/2;
+    if(arr[mid]==key) return 1;
+    if (arr[mid]<key) return Search(mid+1,end,arr,key);
+    if (arr[mid]>key) return Search(start,mid-1,arr,key);
+}
+
+int main(void) {
+	int a[10],n,key,i,j;
+	scanf("%d%d",&n,&key);
+	for (i=0;i<n;i++){
+	    scanf("%d",&a[i]);//Values taken
+	}
+	//SORTING THE ARRAY BY SIMPLEST METHOD
+	for (i=0;i<n;i++){
+	    for (j=i+1;j<n;j++){
+	        if (a[i]>a[j])
+	        {
+	            int temp=a[i];
+	            a[i]=a[j];
+	            a[j]=temp;
+	        }
+	    }
+	}
+	printf("%d",Search(0,n-1,a,key));
+	return 0;
+}
+
